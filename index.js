@@ -39,13 +39,19 @@ Hooks.on('getSceneControlButtons', controls => {
             name: "simpleCinematicPan",
             title: game.i18n.localize('simple-cinematic-pan.controls.title'),
             icon: "fas fa-video",
+            activeTool: "simpleCinematicPan-hidden",
             tools: {
-                "canvas-lock": {
-                    name: "canvas-lock",                    
+                "simpleCinematicPan-hidden": {
+                    name: "simpleCinematicPan-hidden",
+                    visible: true,
+                    order: 0,
+                },
+                "simpleCinematicPan-canvas-lock": {
+                    name: "simpleCinematicPan-canvas-lock",                    
                     title: game.i18n.localize('simple-cinematic-pan.controls.canvas-lock.title'),
                     icon: "fas fa-lock",    
                     visible: true,
-                    order: 0,
+                    order: 1,
                     onChange: (event, active) => {
                         consoleLog('SimpleCinematicPan : Canvas lock tool clicked, active:'+ active);
                         if (SimpleCinematicPan && game.user.isGM) {
@@ -55,28 +61,28 @@ Hooks.on('getSceneControlButtons', controls => {
                     toggle: true,
                     active: SimpleCinematicPan?.isLocked || false
                 },
-                "sync-view": {
-                    name: "sync-view",
+                "simpleCinematicPan-sync-view": {
+                    name: "simpleCinematicPan-sync-view",
                     title: game.i18n.localize('simple-cinematic-pan.controls.sync-view.title'),
                     icon: "fas fa-sync-alt",
                     visible: true,
                     button: true,
-                    order: 1,
-                    onChange: () => {
+                    order: 2,
+                    onChange: (event) => {
                         consoleLog('SimpleCinematicPan : Sync view tool clicked');
                         if (SimpleCinematicPan && game.user.isGM) {
                             SimpleCinematicPan.syncView();
                         }
                     }
                 },
-                "reset": {
-                    name: "reset",
+                "simpleCinematicPan-reset": {
+                    name: "simpleCinematicPan-reset",
                     title: game.i18n.localize('simple-cinematic-pan.controls.reset.title'),
                     icon: "fas fa-undo",
                     visible: true,
                     button: true,
-                    order: 2,
-                    onChange: () => {
+                    order: 3,
+                    onChange: (event) => {
                         consoleLog('SimpleCinematicPan : Reset view tool clicked');
                         if (SimpleCinematicPan && game.user.isGM) {
                             SimpleCinematicPan.resetAndResyncAllUsers();
@@ -87,3 +93,10 @@ Hooks.on('getSceneControlButtons', controls => {
         };
     }
 });
+
+Hooks.on('renderSceneControls', () => {
+    const hiddenBtn = document.querySelector('button[data-tool="simpleCinematicPan-hidden"]');
+    if(hiddenBtn){
+        hiddenBtn.parentElement.style.display = 'none';
+    }
+})

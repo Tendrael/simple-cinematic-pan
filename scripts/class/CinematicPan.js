@@ -62,8 +62,8 @@ export class CinematicPan {
         consoleLog('SimpleCinematicPan : Refreshing scene controls');
         
         // Trigger a re-render of the scene controls using Foundry's API
-        if (ui.controls.tools['canvas-lock']) {
-            ui.controls.tools['canvas-lock'].active = this.isLocked;
+        if (ui.controls.tools['simpleCinematicPan-canvas-lock']) {
+            ui.controls.tools['simpleCinematicPan-canvas-lock'].active = this.isLocked;
             ui.controls.render()
             consoleLog('SimpleCinematicPan : Scene controls refreshed');
         }
