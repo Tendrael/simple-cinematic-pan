@@ -54,8 +54,5 @@
     "manifest": "",
     "download": "",
     "license": "MIT",
-    "readme": "README.md",
-    "bugs": "",
-    "changelog": "",
-    "dependencies": []
+    "readme": "README.md"
 }

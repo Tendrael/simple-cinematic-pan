@@ -1,6 +1,8 @@
 # Simple Cinematic Pan
 
-A **simple** Foundry VTT v13 module that allows the GM to synchronize all players' view with their current own view to create cinematic moments. With just two main actions - **🔄 Synchronize View** to instantly sync all players' view with yours using smooth canvas animations, and **🔄 Toggle Canvas Lock** to exit cinematic mode and restore normal player control - you can create perfect cinematic moments without any complex dialogs or complicated settings. The module includes optional cinematic bars for that movie theater feel, UI hiding for immersive experience, and is seamlessly integrated into Foundry's scene controls with multi-language support.
+A **simple** Foundry VTT v13 module that allows the GM to synchronize all players' view with their current own view to create cinematic moments. 
+With just two main actions - **Synchronize View** to instantly sync all players' view with yours using smooth canvas animations, and **Toggle Canvas Lock** to exit cinematic mode and restore normal player control - you can create perfect cinematic moments without any complex dialogs or complicated settings. 
+The module includes optional cinematic bars for that movie theater feel, UI hiding for immersive experience, and is seamlessly integrated into Foundry's scene controls with multi-language support.
 
 ## Features
 
@@ -67,32 +69,6 @@ The module offers several configurable settings:
 - **Hide UI for players**: When enabled, hides the Foundry UI for players when cinematic mode is active
 - **Debug mode**: When enabled, shows debug information in the console
 
-## API for developers
-
-The module exposes a global API `window.SimpleCinematicPan` with the following methods:
-
-```javascript
-// Module instance
-const cinematicPan = window.SimpleCinematicPan;
-
-// Synchronize view
-cinematicPan.syncView(animationDuration);
-
-// Set canvas lock state
-cinematicPan.setCanvasLock(locked);
-
-// Reset and resync all users
-cinematicPan.resetAndResyncAllUsers();
-
-// Toggle canvas lock (legacy method)
-cinematicPan.toggleCanvasLock();
-
-// Get current view data
-const viewData = cinematicPan.getCurrentView();
-
-// Apply view data
-cinematicPan.applyView(viewData, animationDuration);
-```
 
 ## Compatibility
 
