@@ -46,17 +46,20 @@ You can create custom macros using the module's API methods:
 
 ```javascript
 
-// Synchronize current view with default animation duration
-cinematicPan.syncView();
+// Synchronize current view with default animation duration from the settings
+SimpleCinematicPan.syncView();
 
 // Synchronize current view with a set animation duration in ms
-cinematicPan.syncView(5000);
+SimpleCinematicPan.syncView(5000);
 
-// Toggle canvas lock
-cinematicPan.setCanvasLock(true); // or false
+//Toggle canvas lock
+SimpleCinematicPan.toggleCanvasLock();
+
+// Set canvas lock
+SimpleCinematicPan.setCanvasLock(true); // or false
 
 // Reset and resync all users
-cinematicPan.resetAndResyncAllUsers();
+SimpleCinematicPan.resetAndResyncAllUsers();
 ```
 
 ### For players
