@@ -85,19 +85,6 @@ If you encounter issues or have suggestions:
 3. Check the browser console for errors
 4. Contact me on my discord : https://discord.gg/jMQm3muXVh
 
-## Changelog
-
-### Version 1.0.0
-- Initial version
-- View synchronization with smooth animations
-- Native UI integration with scene controls
-- Configurable settings for animation duration and notifications
-- Cinematic bars with customizable height, color, and opacity
-- UI hiding option for players during cinematic mode
-- Multi-language support (English, French, Spanish, German, Italian, Portuguese)
-- Socket-based communication for real-time synchronization
-- Canvas lock functionality for cinematic mode
-
 ## License
 
 This module is distributed under MIT license. You are free to use, modify and distribute it.
