@@ -1,14 +1,16 @@
 # Simple Cinematic Pan
 
-A Foundry VTT v13 module that allows the GM to synchronize all players' view with their own view to create cinematic moments.
+A Foundry VTT v13 module that allows the GM to synchronize all players' view with their current own view to create cinematic moments.
 
 ## Features
 
 - **View synchronization**: The GM can synchronize all players' view with their own view
 - **Smooth animations**: Uses official Foundry VTT v13 APIs for smooth transitions
 - **Native UI integration**: Integrated controls in Foundry's scene controls with layer/tools architecture
-- **Configurable settings**: Customizable animation duration and notifications
-- **Macro support**: Direct access to module methods for custom macros
+- **Configurable settings**: Customizable animation duration, notifications, and cinematic bars
+- **Cinematic bars**: Optional black bars for cinematic effect
+- **UI hiding**: Option to hide Foundry UI for players during cinematic mode
+- **Multi-language support**: Available in English, French, Spanish, German, Italian, and Portuguese
 
 ## Installation
 
@@ -25,79 +27,70 @@ The module adds a cinematic controls layer to Foundry's scene controls:
 
 1. **Main Layer Button**: Click the camera icon (🎥) in the scene controls layers
 2. **Tool Panel**: A panel of tools will appear with the following options:
-   - **🔄 Sync View**: Synchronize all players' view with yours
-   - **🎯 Pan to Position**: Open a dialog to enter specific coordinates
-   - **👤 Center on Token**: Open a dialog to select a token to center on
-   - **🏠 Reset View**: Reset view to default center position
+   
+   - **🔒 Toggle Canvas Lock**: Lock/unlock canvas for all players
+   - **🔄 Synchronize View**: Synchronize all players' view with yours
+   - **🔄 Reset and resync all users**: Reset view and resync all players
 
-#### Method 2: Keyboard shortcut
-- Press `Ctrl + Shift + C` for quick view synchronization
-
-#### Method 3: Macros
+#### Method 2: Macros
 You can create custom macros using the module's API methods:
 
 ```javascript
+
 // Synchronize current view with default animation duration
-CinematicPan.syncView();
+cinematicPan.syncView();
 
 // Synchronize current view with a set animation duration in ms
-CinematicPan.syncView(5000);
+cinematicPan.syncView(5000);
 
+// Toggle canvas lock
+cinematicPan.setCanvasLock(true); // or false
 
-
-
+// Reset and resync all users
+cinematicPan.resetAndResyncAllUsers();
 ```
-
-### Interactive Dialogs
-
-#### Pan to Position Dialog
-When you click the "Pan to Position" tool, a dialog opens allowing you to:
-- Enter X and Y coordinates
-- Set an optional scale factor
-- The coordinates are in canvas pixels
-
-#### Token Selection Dialog
-When you click the "Center on Token" tool, a dialog opens showing:
-- A dropdown list of all tokens on the current scene
-- Token names with their current coordinates
-- Optional scale factor input
 
 ### For players
 
-Players don't need to do anything! Their view will be automatically synchronized when the GM uses the module.
+Players don't need to do anything! Their view will be automatically synchronized when the GM uses the module. If the "Hide UI for players" setting is enabled, their interface will be hidden during cinematic mode.
 
 ## Settings
 
 The module offers several configurable settings:
 
-- **Animation duration**: Transition duration in milliseconds (0-5000ms)
-- **Show notifications**: Enable/disable synchronization notifications
+- **Animation duration**: Transition duration in milliseconds (0-10000ms)
+- **Show notifications**: Enable/disable synchronization notifications (only for the GM)
+- **Cinematic bars height**: Height of the cinematic bars as percentage of screen height (0-50%)
+- **Cinematic bars color**: Color of the cinematic bars (hex format, e.g. #000000)
+- **Cinematic bars opacity**: Opacité des barres cinématiques (0 - 1)
+- **Hide UI for players**: When enabled, hides the Foundry UI for players when cinematic mode is active
+- **Debug mode**: When enabled, shows debug information in the console
 
 ## API for developers
 
-The module exposes a global API `window.CinematicPan` with the following methods:
+The module exposes a global API `window.SimpleCinematicPan` with the following methods:
 
 ```javascript
 // Module instance
-const cinematicPan = window.CinematicPan;
+const cinematicPan = window.SimpleCinematicPan;
 
 // Synchronize view
-cinematicPan.syncView();
+cinematicPan.syncView(animationDuration);
 
-// Pan to position
-cinematicPan.panTo(x, y, scale);
+// Set canvas lock state
+cinematicPan.setCanvasLock(locked);
 
-// Center on token
-cinematicPan.centerOnToken(tokenId, scale);
+// Reset and resync all users
+cinematicPan.resetAndResyncAllUsers();
 
-// Center on map point
-cinematicPan.centerOnMapPoint(x, y, scale);
+// Toggle canvas lock (legacy method)
+cinematicPan.toggleCanvasLock();
 
-// Reset view to default
-cinematicPan.resetView();
+// Get current view data
+const viewData = cinematicPan.getCurrentView();
 
-// Toggle cinematic mode
-cinematicPan.toggleActive();
+// Apply view data
+cinematicPan.applyView(viewData, animationDuration);
 ```
 
 ## Compatibility
@@ -113,25 +106,20 @@ If you encounter issues or have suggestions:
 1. Make sure you're using Foundry VTT v13+
 2. Temporarily disable other modules to test
 3. Check the browser console for errors
-4. Contact the author with problem details
+4. Contact me on my discord : https://discord.gg/jMQm3muXVh
 
 ## Changelog
 
-### Version 2.0.0
-- Complete code refactoring
-- Use of official Foundry VTT v13 APIs
-- Native UI integration with layer/tools architecture
-- Interactive dialogs for coordinate input and token selection
-- Removed chat commands for cleaner interface
-- Added configurable settings
-- Improved user interface
-- Multi-language support (English, French)
-
 ### Version 1.0.0
 - Initial version
-- Basic view synchronization
-- Chat commands
-- Interface button
+- View synchronization with smooth animations
+- Native UI integration with scene controls
+- Configurable settings for animation duration and notifications
+- Cinematic bars with customizable height, color, and opacity
+- UI hiding option for players during cinematic mode
+- Multi-language support (English, French, Spanish, German, Italian, Portuguese)
+- Socket-based communication for real-time synchronization
+- Canvas lock functionality for cinematic mode
 
 ## License
 

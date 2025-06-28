@@ -1,0 +1,58 @@
+{
+    "simple-cinematic-pan": {
+        "settings": {
+            "animation-duration": {
+                "name": "Duração da animação (ms)",
+                "hint": "Duração da animação de transição em milissegundos"
+            },
+            "show-notifications": {
+                "name": "Mostrar notificações",
+                "hint": "Mostra notificações (apenas para o MJ)"
+            },
+            "cinematic-bars-height": {
+                "name": "Altura das barras cinematográficas (%)",
+                "hint": "Altura das barras cinematográficas como porcentagem da altura da tela"
+            },
+            "cinematic-bars-color": {
+                "name": "Cor das barras cinematográficas",
+                "hint": "Cor das barras cinematográficas (formato hexadecimal, ex. #000000)"
+            },
+            "cinematic-bars-opacity": {
+                "name": "Opacidade das barras cinematográficas",
+                "hint": "Opacidade das barras cinematográficas (0 - 1)"
+            },
+            "hide-ui-for-players": {
+                "name": "Ocultar interface para jogadores no modo cinematográfico",
+                "hint": "Quando habilitado, oculta a interface do Foundry para jogadores quando o modo cinematográfico (bloqueio do canvas) está ativo"
+            },
+            "debug-mode": {
+                "name": "Modo de depuração",
+                "hint": "Quando habilitado, mostra informações de depuração na console"
+            }
+        },
+        "notifications": {
+            "gm-only-canvas-lock": "Apenas o MJ pode controlar o bloqueio do canvas.",
+            "canvas-locked": "Canvas bloqueado para todos os jogadores.",
+            "canvas-unlocked": "Canvas desbloqueado para todos os jogadores.",
+            "gm-only-sync": "Apenas o MJ pode sincronizar a visualização.",
+            "canvas-not-ready": "O canvas não está pronto.",
+            "gm-only-reset": "Apenas o MJ pode usar esta função.",
+            "canvas-locked-local": "Canvas bloqueado.",
+            "canvas-unlocked-local": "Canvas desbloqueado.",
+            "players-synchronizing": "Jogadores estão sincronizando...",
+            "view-synchronized": "Visualização sincronizada com todos os jogadores."
+        },
+        "controls": {
+            "title": "Controles Cinematográficos",
+            "canvas-lock": {
+                "title": "Alternar Bloqueio do Canvas"
+            },
+            "sync-view": {
+                "title": "Sincronizar Visualização"
+            },
+            "reset": {
+                "title": "Redefinir e ressincronizar todos os usuários"
+            }
+        }
+    }
+} 

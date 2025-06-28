@@ -1,0 +1,61 @@
+{
+    "id": "simple-cinematic-pan",
+    "title": "Simple Cinematic Pan",
+    "description": "A simple module for Foundry VTT v13 that allows the GM to synchronize all players' view with their own view for cinematic effects.",
+    "version": "1.0.0",
+    "authors": [
+      {
+        "name": "Tendra",
+        "email": "",
+        "url": ""
+      }
+    ],
+    "minimumCoreVersion": "13",
+    "compatibleCoreVersion": "13",
+    "esmodules": [
+        "index.js",
+        "scripts/settings.js"
+    ],
+    "styles": [],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        },
+        {
+            "lang": "fr",
+            "name": "Français",
+            "path": "lang/fr.json"
+        },
+        {
+            "lang": "es",
+            "name": "Español",
+            "path": "lang/es.json"
+        },
+        {
+            "lang": "de",
+            "name": "Deutsch",
+            "path": "lang/de.json"
+        },
+        {
+            "lang": "it",
+            "name": "Italiano",
+            "path": "lang/it.json"
+        },
+        {
+            "lang": "pt",
+            "name": "Português",
+            "path": "lang/pt.json"
+        }
+    ],
+    "socket": true,
+    "url": "",
+    "manifest": "",
+    "download": "",
+    "license": "MIT",
+    "readme": "README.md",
+    "bugs": "",
+    "changelog": "",
+    "dependencies": []
+}

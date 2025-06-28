@@ -1,0 +1,58 @@
+{
+    "simple-cinematic-pan": {
+        "settings": {
+            "animation-duration": {
+                "name": "Animationsdauer (ms)",
+                "hint": "Dauer der Übergangsanimation in Millisekunden"
+            },
+            "show-notifications": {
+                "name": "Benachrichtigungen anzeigen",
+                "hint": "Zeigt Benachrichtigungen (nur für den SL)"
+            },
+            "cinematic-bars-height": {
+                "name": "Höhe der Kinobalken (%)",
+                "hint": "Höhe der Kinobalken als Prozentsatz der Bildschirmhöhe"
+            },
+            "cinematic-bars-color": {
+                "name": "Farbe der Kinobalken",
+                "hint": "Farbe der Kinobalken (Hex-Format, z.B. #000000)"
+            },
+            "cinematic-bars-opacity": {
+                "name": "Deckkraft der Kinobalken",
+                "hint": "Deckkraft der Kinobalken (0 - 1)"
+            },
+            "hide-ui-for-players": {
+                "name": "UI für Spieler im Kinomodus ausblenden",
+                "hint": "Wenn aktiviert, wird die Foundry-UI für Spieler ausgeblendet, wenn der Kinomodus (Canvas-Sperre) aktiv ist"
+            },
+            "debug-mode": {
+                "name": "Debug-Modus",
+                "hint": "Wenn aktiviert, wird Debug-Informationen in der Konsole angezeigt"
+            }
+        },
+        "notifications": {
+            "gm-only-canvas-lock": "Nur der SL kann die Canvas-Sperre steuern.",
+            "canvas-locked": "Canvas für alle Spieler gesperrt.",
+            "canvas-unlocked": "Canvas für alle Spieler entsperrt.",
+            "gm-only-sync": "Nur der SL kann die Ansicht synchronisieren.",
+            "canvas-not-ready": "Canvas ist nicht bereit.",
+            "gm-only-reset": "Nur der SL kann diese Funktion verwenden.",
+            "canvas-locked-local": "Canvas gesperrt.",
+            "canvas-unlocked-local": "Canvas entsperrt.",
+            "players-synchronizing": "Spieler synchronisieren sich...",
+            "view-synchronized": "Ansicht mit allen Spielern synchronisiert."
+        },
+        "controls": {
+            "title": "Kino-Steuerung",
+            "canvas-lock": {
+                "title": "Canvas-Sperre umschalten"
+            },
+            "sync-view": {
+                "title": "Ansicht synchronisieren"
+            },
+            "reset": {
+                "title": "Zurücksetzen und alle Benutzer resynchronisieren"
+            }
+        }
+    }
+} 
