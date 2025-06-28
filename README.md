@@ -1,8 +1,10 @@
 # Simple Cinematic Pan
 
-A **simple** Foundry VTT v13 module that allows the GM to synchronize all players' view with their current own view to create cinematic moments. 
-With just two main actions - **Synchronize View** to instantly sync all players' view with yours using smooth canvas animations, and **Toggle Canvas Lock** to exit cinematic mode and restore normal player control - you can create perfect cinematic moments without any complex dialogs or complicated settings. 
-The module includes optional cinematic bars for that movie theater feel, UI hiding for immersive experience, and is seamlessly integrated into Foundry's scene controls with multi-language support.
+A **simple** Foundry VTT module that lets the GM synchronize all players’ views with their own to create cinematic moments.
+
+With two main actions — **Synchronize View**, which instantly aligns all player views to the GM’s using smooth canvas animations, and **Toggle Canvas Lock**, which restores player control — you can craft cinematic scenes effortlessly, with no need for complex dialogs or complicated settings.
+
+The module also offers optional cinematic bars for that movie-theater feel, UI hiding for a more immersive experience, and seamless integration into Foundry’s scene controls — with easy-to-use macro scripts.
 
 ## Features
 
