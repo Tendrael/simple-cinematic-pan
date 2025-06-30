@@ -10,8 +10,10 @@
         "url": "https://github.com/Tendrael"
       }
     ],
-    "minimumCoreVersion": "13",
-    "compatibleCoreVersion": "13",
+    "compatibility": {
+        "minimum": "13",
+        "verified": "13"
+    },
     "esmodules": [
         "index.js",
         "scripts/settings.js"
