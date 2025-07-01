@@ -2,7 +2,7 @@
     "id": "simple-cinematic-pan",
     "title": "Simple Cinematic Pan",
     "description": "A simple Foundry VTT module that lets the GM synchronize all players' views with their own to create cinematic moments. With two main actions — Synchronize View, which instantly aligns all player views to the GM’s using smooth canvas animations, and Toggle Canvas Lock, which restores player control — you can craft cinematic scenes effortlessly, with no need for complex dialogs or complicated settings. The module also offers optional cinematic bars for that movie-theater feel, UI hiding for a more immersive experience, and seamless integration into Foundry's scene controls — with easy-to-use macro scripts.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "authors": [
       {
         "name": "Tendra",
@@ -54,7 +54,7 @@
     "socket": true,
     "url": "https://github.com/Tendrael/simple-cinematic-pan",
     "manifest": "https://github.com/Tendrael/simple-cinematic-pan/releases/latest/download/module.json",
-    "download": "https://github.com/Tendrael/simple-cinematic-pan/releases/download/v1.0.4/module.zip",
+    "download": "https://github.com/Tendrael/simple-cinematic-pan/releases/download/v1.0.5/module.zip",
     "license": "MIT",
     "readme": "README.md"
 }
