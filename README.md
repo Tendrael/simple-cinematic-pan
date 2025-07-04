@@ -1,5 +1,7 @@
 # Simple Cinematic Pan
 
+![Download Count](https://img.shields.io/github/downloads/Tendrael/simple-cinematic-pan/module.zip?color=77ccd5&label=DOWNLOADS&style=for-the-badge)
+
 A simple Foundry VTT module that lets the GM synchronize all players' views with their own to create cinematic moments. 
 
 With two main actions — Synchronize View, which instantly aligns all player views to the GM’s using smooth canvas animations, and Toggle Canvas Lock, which restores player control — you can craft cinematic scenes effortlessly, with no need for complex dialogs or complicated settings. 
@@ -20,12 +22,6 @@ The module also offers optional cinematic bars for that movie-theater feel, UI h
 - **Macros**: Direct API access for custom automation and advanced control
 - **Multi-language support**: Available in English, French, Spanish, German, Italian, and Portuguese
 - **Configurable settings**: Customizable animation duration, notifications, and cinematic bars
-
-## Installation
-
-1. Download the module from the manifest
-2. Enable the module in your world settings
-3. The module is ready to use!
 
 ## Usage
 
@@ -102,3 +98,15 @@ This module is distributed under MIT license. You are free to use, modify and di
 
 - Foundry VTT team for excellent documentation
 - Foundry VTT community for feedback and suggestions 
+
+## About the author
+
+Greetings, traveler! 🧙
+
+I'm crafting free and premium modules for Foundry VTT — focused on immersion, user experience, and bringing stories to life. I'm a roleplayer and GM for over 20 years, and a web developer for nearly a decade. The modules I create are the ones I’ve always wanted for my own Foundry VTT game sessions — tools to draw my players deeper into the worlds and stories I tell.
+ 
+I've chosen to dedicate a significant part of my free time to building quality content for the community, hoping that generous adventurers like you will help keep the forge burning. 🔥
+
+Support me on Patreon : https://www.patreon.com/Tendrael
+
+Join my Discord to get support, share suggestions, and enjoy sneak peeks : https://discord.gg/jMQm3muXVh
