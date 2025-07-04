@@ -95,9 +95,16 @@ Hooks.on('getSceneControlButtons', controls => {
     }
 });
 
+// Hide the simpleCinematicPan-hidden button
 Hooks.on('renderSceneControls', () => {
     const hiddenBtn = document.querySelector('button[data-tool="simpleCinematicPan-hidden"]');
     if(hiddenBtn){
         hiddenBtn.parentElement.style.display = 'none';
     }
 })
+
+// Render settings config
+Hooks.on('renderSettingsConfig', (app, html) => {
+    const element = html.querySelector('[name="' + MODULE_ID + '.cinematic-bars-color"]');
+    element.type = 'color';
+});
