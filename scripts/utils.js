@@ -1,4 +1,4 @@
-import { MODULE_ID } from '../constant/module.js';
+import { MODULE_ID } from './constants/module.js';
 
 export const consoleLog = (message, type = 'info') => {
     let debugMode = true

@@ -1,4 +1,4 @@
-import { MODULE_ID } from '../constant/module.js';
+import { MODULE_ID } from './constants/module.js';
 import { consoleLog } from './utils.js';
 
 // Initialize settings when module is ready

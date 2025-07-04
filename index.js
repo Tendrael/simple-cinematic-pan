@@ -1,4 +1,5 @@
 import { CinematicPan } from './scripts/class/CinematicPan.js';
+import { MODULE_ID } from './scripts/constants/module.js';
 import { registerSettings } from './scripts/settings.js';
 import { consoleLog } from './scripts/utils.js';
 
