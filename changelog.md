@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.0] - 2024-12-19
+## [1.1.0] - 2025-08-16
 
 ### New Features
 - **Automatic cinematic mode per scene**: Added option to scenes to automatically activate cinematic mode on scene activation (canvas pans to the initial view position if needed)
