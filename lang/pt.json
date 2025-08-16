@@ -25,6 +25,9 @@
                 "name": "Ocultar interface para jogadores no modo cinematográfico",
                 "hint": "Quando habilitado, oculta a interface do Foundry para jogadores quando o modo cinematográfico (bloqueio do canvas) está ativo"
             },
+            "cinematic-mode-on-load-scene": {
+                "name": "Canvas automaticamente no modo cinematográfico quando esta cena é ativada"
+            },
             "debug-mode": {
                 "name": "Modo de depuração",
                 "hint": "Quando habilitado, mostra informações de depuração na console"
@@ -51,7 +54,7 @@
                 "title": "Sincronizar Visualização"
             },
             "reset": {
-                "title": "Redefinir e ressincronizar todos os usuários"
+                "title": "Debug: Redefinir e ressincronizar todos os usuários para seus estados padrão"
             }
         }
     }

@@ -25,6 +25,9 @@
                 "name": "UI für Spieler im Kinomodus ausblenden",
                 "hint": "Wenn aktiviert, wird die Foundry-UI für Spieler ausgeblendet, wenn der Kinomodus (Canvas-Sperre) aktiv ist"
             },
+            "cinematic-mode-on-load-scene": {
+                "name": "Canvas automatisch im Kinomodus sperren, wenn diese Szene aktiviert wird"
+            },
             "debug-mode": {
                 "name": "Debug-Modus",
                 "hint": "Wenn aktiviert, wird Debug-Informationen in der Konsole angezeigt"
@@ -51,7 +54,7 @@
                 "title": "Ansicht synchronisieren"
             },
             "reset": {
-                "title": "Zurücksetzen und alle Benutzer resynchronisieren"
+                "title": "Debug: Alle Benutzer auf ihre Standardzustände zurücksetzen und neu synchronisieren"
             }
         }
     }

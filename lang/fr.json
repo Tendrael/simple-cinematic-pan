@@ -25,6 +25,9 @@
                 "name": "Masquer l'interface pour les joueurs en mode cinématique",
                 "hint": "Quand activé, masque l'interface Foundry pour les joueurs quand le mode cinématique (verrouillage du canvas) est actif"
             },
+            "cinematic-mode-on-load-scene": {
+                "name": "Verrouille automatiquement le canvas en mode cinématique quand cette scène est activée"
+            },
             "debug-mode": {
                 "name": "Mode débogage",
                 "hint": "Quand activé, affiche des informations de débogage dans la console"
@@ -51,7 +54,7 @@
                 "title": "Synchroniser Vue"
             },
             "reset": {
-                "title": "Réinitialiser et resynchroniser tous les utilisateurs"
+                "title": "Debug: Réinitialiser et resynchroniser tous les utilisateurs vers leurs états par défaut"
             }
         }
     }

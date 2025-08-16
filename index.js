@@ -25,6 +25,36 @@ Hooks.once('ready', async () => {
     }
 });
 
+// Handle scene activation - check for cinematic mode on load
+Hooks.on('updateScene', (scene) => {
+    consoleLog('SimpleCinematicPan : Scene updated:');
+    consoleLog(scene);
+    if (SimpleCinematicPan) {
+        const cinematicModeOnLoad = scene.getFlag(MODULE_ID, 'cinematicModeOnLoadScene');
+        consoleLog('SimpleCinematicPan : Cinematic mode on load:', cinematicModeOnLoad);
+        if (cinematicModeOnLoad && !SimpleCinematicPan.isLocked &&  scene.active) {
+            consoleLog('SimpleCinematicPan : Cinematic mode on load detected for scene: ' + scene.name);
+            SimpleCinematicPan.applyCanvasLock(true);
+        }
+    }
+});
+
+// Handle canvas ready
+Hooks.on('canvasReady', (canvas) => {
+    consoleLog('SimpleCinematicPan : Canvas ready:');
+    consoleLog(canvas);
+    if (SimpleCinematicPan && SimpleCinematicPan.isLocked && !game?.user?.isGM) {
+        if (canvas.tokens && canvas.tokens.controlled.length > 0) {
+            canvas.tokens.releaseAll();
+        }
+        const cinematicModeOnLoad = canvas.scene.getFlag(MODULE_ID, 'cinematicModeOnLoadScene');
+        if (cinematicModeOnLoad) {
+            SimpleCinematicPan.applyView(canvas.scene.initial);
+        }
+    }
+});
+
+
 // Register scene control buttons
 Hooks.on('getSceneControlButtons', controls => {
     consoleLog('SimpleCinematicPan : Registering scene control buttons');
@@ -100,6 +130,28 @@ Hooks.on('renderSceneControls', (sceneControls) => {
         sceneControls.controls.simpleCinematicPan.tools['simpleCinematicPan-canvas-lock'].active = SimpleCinematicPan?.isLocked || false;
     }
 })
+
+Hooks.on("renderSceneConfig", (app, html, data) => {
+   const cinamaticModeOnLoadScene = app.document.getFlag(MODULE_ID, "cinematicModeOnLoadScene") ?? false;
+   
+   const formHtml = `
+   <br/>
+    <fieldset>
+        <legend>Simple Cinematic Pan</legend>
+        <div class="form-group">
+            <label for="flags.${MODULE_ID}.cinematicModeOnLoadScene">${game.i18n.localize('simple-cinematic-pan.settings.cinematic-mode-on-load-scene.name')}</label>
+            <input type="checkbox" id="flags.${MODULE_ID}.cinematicModeOnLoadScene" name="flags.${MODULE_ID}.cinematicModeOnLoadScene" ${cinamaticModeOnLoadScene ? 'checked' : ''}>
+        </div>
+    </fieldset>
+    `;
+    const tab = html.querySelector('.tab[data-tab="basics"]');
+    if (tab) {
+        tab.insertAdjacentHTML('beforeend', formHtml);
+        tab.classList.add('scrollable');
+    } else {
+        console.log('SimpleCinematicPan: .tab[data-tab="basics"] not found');
+    }
+});
 
 // Render settings config
 Hooks.on('renderSettingsConfig', (app, html) => {

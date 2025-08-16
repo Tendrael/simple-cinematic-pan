@@ -24,6 +24,9 @@
             "hide-ui-for-players": {
                 "name": "Nascondi UI per i giocatori in modalità cinematografica",
                 "hint": "Quando abilitato, nasconde l'UI di Foundry per i giocatori quando la modalità cinematografica (blocco canvas) è attiva"
+            },
+            "cinematic-mode-on-load-scene": {
+                "name": "Canvas automaticamente in modalità cinematografica quando questa scena viene attivata"
             },  
             "debug-mode": {
                 "name": "Modalità debug",
@@ -51,7 +54,7 @@
                 "title": "Sincronizza Vista"
             },
             "reset": {
-                "title": "Ripristina e risincronizza tutti gli utenti"
+                "title": "Debug: Ripristina e risincronizza tutti gli utenti ai loro stati predefiniti"
             }
         }
     }

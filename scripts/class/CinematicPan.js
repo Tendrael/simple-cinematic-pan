@@ -111,47 +111,50 @@ export class CinematicPan {
 
         this.isLocked = locked;
 
+        
         try {
-            if (locked) {
-                // Disable canvas interactions
-                canvas.stage.interactive = false;
-                canvas.stage.buttonMode = false;
-                
-                // Disable mouse events by preventing interaction
-                if (canvas.mouseInteractionManager) {
-                    canvas.mouseInteractionManager.enabled = false;
+            if(!game?.user?.isGM) {
+                if (locked) {
+                    // Disable canvas interactions
+                    canvas.stage.interactive = false;
+                    canvas.stage.buttonMode = false;
+                    
+                    // Disable mouse events by preventing interaction
+                    if (canvas.mouseInteractionManager) {
+                        canvas.mouseInteractionManager.enabled = false;
+                    }
+                    
+                    // Deselect currently selected tokens
+                    if (canvas.tokens && canvas.tokens.controlled.length > 0) {
+                        canvas.tokens.releaseAll();
+                    }
+                    
+                    // Disable drag and pan
+                    if (canvas.dragDrop) {
+                        canvas.dragDrop.enabled = false;
+                    }
+                    consoleLog('SimpleCinematicPan : Canvas interactions disabled');
+                } else {
+                    // Re-enable canvas interactions
+                    canvas.stage.interactive = true;
+                    canvas.stage.buttonMode = true;
+                    
+                    // Re-enable mouse events
+                    if (canvas.mouseInteractionManager) {
+                        canvas.mouseInteractionManager.enabled = true;
+                    }
+                    
+                    // Re-enable keyboard navigation
+                    if (canvas.keyboardManager) {
+                        canvas.keyboardManager.enabled = true;
+                    }
+                    
+                    // Re-enable drag and pan
+                    if (canvas.dragDrop) {
+                        canvas.dragDrop.enabled = true;
+                    }
+                    consoleLog('SimpleCinematicPan : Canvas interactions enabled');
                 }
-                
-                // Deselect currently selected tokens
-                if (canvas.tokens && canvas.tokens.controlled.length > 0) {
-                    canvas.tokens.releaseAll();
-                }
-                
-                // Disable drag and pan
-                if (canvas.dragDrop) {
-                    canvas.dragDrop.enabled = false;
-                }
-                consoleLog('SimpleCinematicPan : Canvas interactions disabled');
-            } else {
-                // Re-enable canvas interactions
-                canvas.stage.interactive = true;
-                canvas.stage.buttonMode = true;
-                
-                // Re-enable mouse events
-                if (canvas.mouseInteractionManager) {
-                    canvas.mouseInteractionManager.enabled = true;
-                }
-                
-                // Re-enable keyboard navigation
-                if (canvas.keyboardManager) {
-                    canvas.keyboardManager.enabled = true;
-                }
-                
-                // Re-enable drag and pan
-                if (canvas.dragDrop) {
-                    canvas.dragDrop.enabled = true;
-                }
-                consoleLog('SimpleCinematicPan : Canvas interactions enabled');
             }
 
             this.toggleCinematicBars(locked);
