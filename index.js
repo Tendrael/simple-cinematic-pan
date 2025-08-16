@@ -25,13 +25,6 @@ Hooks.once('ready', async () => {
     }
 });
 
-// Handle scene change
-Hooks.on('preUpdateScene', (scene, options) => {
-    if(game.user.isGM && SimpleCinematicPan && SimpleCinematicPan.isLocked){
-        SimpleCinematicPan.toggleCanvasLock();
-    }
-});
-
 // Register scene control buttons
 Hooks.on('getSceneControlButtons', controls => {
     consoleLog('SimpleCinematicPan : Registering scene control buttons');
@@ -96,10 +89,15 @@ Hooks.on('getSceneControlButtons', controls => {
 });
 
 // Hide the simpleCinematicPan-hidden button
-Hooks.on('renderSceneControls', () => {
+Hooks.on('renderSceneControls', (sceneControls) => {
     const hiddenBtn = document.querySelector('button[data-tool="simpleCinematicPan-hidden"]');
     if(hiddenBtn){
         hiddenBtn.parentElement.style.display = 'none';
+    }
+
+    const canvasLockBtn = document.querySelector('button[data-tool="simpleCinematicPan-canvas-lock"]');
+    if(canvasLockBtn){
+        sceneControls.controls.simpleCinematicPan.tools['simpleCinematicPan-canvas-lock'].active = SimpleCinematicPan?.isLocked || false;
     }
 })
 

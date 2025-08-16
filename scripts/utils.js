@@ -9,7 +9,7 @@ export const consoleLog = (message, type = 'info') => {
         return;
     }
 
-    if (game.user.isGM && debugMode) {
+    if (debugMode) {
         switch (type) {
             case 'info':
                 console.log(message);

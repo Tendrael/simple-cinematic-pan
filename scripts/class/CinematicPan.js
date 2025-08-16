@@ -109,6 +109,8 @@ export class CinematicPan {
             return;
         }
 
+        this.isLocked = locked;
+
         try {
             if (locked) {
                 // Disable canvas interactions
@@ -120,9 +122,9 @@ export class CinematicPan {
                     canvas.mouseInteractionManager.enabled = false;
                 }
                 
-                // Disable keyboard navigation
-                if (canvas.keyboardManager) {
-                    canvas.keyboardManager.enabled = false;
+                // Deselect currently selected tokens
+                if (canvas.tokens && canvas.tokens.controlled.length > 0) {
+                    canvas.tokens.releaseAll();
                 }
                 
                 // Disable drag and pan
@@ -325,6 +327,8 @@ export class CinematicPan {
             return;
         }
 
+        this.isLocked = true;
+
         try {
             const duration = animationDuration ? animationDuration : game.settings.get(MODULE_ID, 'animation-duration');
             consoleLog('SimpleCinematicPan : Animation duration:');
@@ -382,10 +386,12 @@ export class CinematicPan {
     reset() {
         consoleLog('SimpleCinematicPan : reset() called');
 
+        if(this.isLocked) {
+            this.setCanvasLock(false);
+            this.toggleCinematicBars(false);
+            this.togglePlayerUI(false);
+        }
         this.isLocked = false;
-        this.setCanvasLock(false);
-        this.toggleCinematicBars(false);
-        this.togglePlayerUI(false);
     }
 
     /**
@@ -435,12 +441,15 @@ export class CinematicPan {
                 left: 0;
                 width: 100vw;
                 height: 100vh;
-                pointer-events: none;
                 z-index: 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                pointer-events: none;
             `;
+            if(!game?.user?.isGM) {
+                cinematicOverlay.style.pointerEvents = 'auto';
+            }
             
             // Top bar
             const topBar = document.createElement('div');
@@ -501,7 +510,7 @@ export class CinematicPan {
         
         // Get UI elements to hide/show
         const uiElements = document.querySelectorAll('body > *:not(#cinematic-pan-overlay, #board)');
-        
+
         if (locked) {
             // Hide UI elements
             consoleLog('SimpleCinematicPan : Hiding UI elements for player');
@@ -510,8 +519,14 @@ export class CinematicPan {
                     element.style.zIndex = '1';
                     element.style.scale = '1.05';
                 }
+
+                element.dataset.scpInitialTransition = element.style.transition;
                 element.style.transition = '500ms ease-in-out';
+
+                element.dataset.scpInitialOpacity = element.style.opacity;
                 element.style.opacity = '0';
+
+                element.dataset.scpInitialPointerEvents = element.style.pointerEvents;
                 element.style.pointerEvents = 'none';
             });
         } else {
@@ -520,17 +535,36 @@ export class CinematicPan {
             uiElements.forEach(element => {
                 element.style.transition = '500ms 1s ease-in-out';
                 element.style.opacity = '1';
+
                 if(element.id === 'interface') {
                     element.style.scale = '1';
                 }
-                element.style.removeProperty('pointer-events');
+
+                if(element.dataset.scpInitialPointerEvents) {
+                    element.style.pointerEvents = element.dataset.scpInitialPointerEvents;
+                }else {
+                    element.style.removeProperty('pointer-events');
+                }
+
                 setTimeout(() => {
                     if(element.id === 'interface') {
-                        element.style.removeProperty('z-index');
                         element.style.removeProperty('scale');
+                        setTimeout(() => {
+                            element.style.removeProperty('z-index');
+                        }, 100);
                     }
-                    element.style.removeProperty('transition');
-                    element.style.removeProperty('opacity');
+
+                    if(element.dataset.scpInitialTransition) {
+                        element.style.transition = element.dataset.scpInitialTransition;
+                    }else {
+                        element.style.removeProperty('transition');
+                    }
+
+                    if(element.dataset.scpInitialOpacity && element.id !== 'interface') {
+                        element.style.opacity = element.dataset.scpInitialOpacity;
+                    }else {
+                        element.style.removeProperty('opacity');
+                    }
                 }, 1500);
             });
         }
